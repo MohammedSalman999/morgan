@@ -414,6 +414,30 @@ function assignId (req, res, next) {
 }
 ```
 
+### Using Module base ES6
+
+This way we can use the input method 
+```js
+import express from "express";
+import morgan from "morgan";
+
+const app = express();
+const port = 3000;
+const customFormat = ':method :url :status';
+
+// Use Morgan middleware with the custom log format
+app.use(morgan(customFormat));
+
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
+
+```
+
 ## License
 
 [MIT](LICENSE)
